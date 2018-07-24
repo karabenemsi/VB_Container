@@ -14,6 +14,14 @@ Container setzen direkt auf dem Kernel eines Linux-Betriebssystems auf. Um auf d
 Somit können CPU-Zyklen, Arbeitsspeicher, Blockspeicher und sonstige Schnittstellen über den Kernel angefordert und isoliert in dem jeweiligen Container zur Verfügung gestellt werden.\cite{DataCenter}
 
 Da sie nur als einzelnes Image abgelegt sind, und kein Betriebssystem beinhalten, welches aktualisiert und gewartet werden müsste, beschränken sich die Installation und Deinstallation auf ein einfaches kopieren oder löschen des Containers. 
-Aus einem Image können beliebig viele Container-Instanzen aufgerufen werden, da Schreibzugriffe nicht auf das Image auf das Image zugreifen sondern auf ein eigenes Dateisystem des Containers. Dieses Verhalten sorgt für eine sehr hohe Skalierbarkeit, da bei Bedarf einfach neue Instanzen der Anwendung gestartet werden können.\cite{DevInsider}
+Aus einem Image können beliebig viele Container-Instanzen aufgerufen werden, da Schreibzugriffe nicht auf das Image auf das Image zugreifen sondern auf ein eigenes Dateisystem des Containers. Dieses Verhalten sorgt für eine sehr hohe Skalierbarkeit, da bei Bedarf einfach neue Instanzen der Anwendung gestartet werden können.\cite{DevInsider} Dadurch haben Container eine kurze durchschnittliche Lebensdauer, welche man der Grafik entnehmen kann:
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth]{Lebensdauer.png}
+	\end{center}
+	\caption[Lebensdauer eines Containers]{Lebensdauer eines Containers \footnotemark}
+	\label{fig:HW1}
+\end{figure}
+\quellefoot{5}{https://www.dailyhostnews.com/wp-content/uploads/2018/05/d3.png}
 In den letzten 10 Jahren haben Container einen großen Wandel durchlebt, welcher in \Abschnitt{Containertechnologien} näher erläutert wird.
 \newpage
