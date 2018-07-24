@@ -21,14 +21,27 @@ Chroot ist ein Befehl, der schon früh in Unix-Systemen eingebaut wurde. Er erm�
 \subsection{OpenVZ}
 \label{sec:OpenVZ}
 
+Im Jahr 2005 veröffentlichte die Firma SWsoft (später umbenannt zu Parallels) ihr Projekt OpenVZ unter der GNU GPL Lizenz. OpenVZ basierte auf der Idee der Container ermöglicht es jedoch in jedem Container eine eigene Linux-Distribution auszuführen. Die, durch die Containerumgebung abgegrenzten Betriebssysteme, teilen sich dabei einen Kernel. Dadurch ist der Overhead von OpenVZ deutlich geringer als bei der klassischen Vollvirtualisierung eines Betriebssystems. In den einzelnen Container gibt es jeweils einen eigenen root-User und Dateistruktur, sie können aber unabhängig voneineander gestarten und gestoppt werden. Da sich die Betriebssysteme einen Kernel teilen können auch die Gastsysteme nur Linux-Systeme sein. Da viele der Änderungen von OpenVZ den Kernel von Linux betreffen werden regelmäßig Änderungen von OpenVZ-Patchen in den Kernel von Linux übernommen.\cite{OpenVzNews, IEEE4803091,OpenVzHist}
+
+
+\subsection{FreeBSD jails}
+\label{sec:jails}
+
+
 
 \subsection{LXC}
 \label{sec:lxc}
 
 
 
+
+
 \subsection{LXD}
 \label{sec:lxd}
+
+
+\subsection{Solaris Container}
+\label{sec:solariscontainer}
 
 
 \subsection{Windows Containers}
@@ -43,6 +56,5 @@ Chroot ist ein Befehl, der schon früh in Unix-Systemen eingebaut wurde. Er erm�
 \subsection{rkt}
 \label{sec:rkt}
 
-\subsection{FreeBSD jails}
-\label{sec:jails}
+
 
