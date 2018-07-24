@@ -14,5 +14,14 @@ Somit können CPU-Zyklen, Arbeitsspeicher, Blockspeicher und sonstige Schnittste
 
 Da Container nur als einzelnes Image abgelegt sind und kein Betriebssystem beinhalten, welches aktualisiert und gewartet werden müsste, beschränken sich die Installation und Deinstallation auf ein einfaches Kopieren oder Löschen des Containers. 
 Aus einem Image können beliebig viele Container-Instanzen aufgerufen werden, da Schreibzugriffe nicht auf das Image zugreifen, sondern auf ein eigenes Dateisystem des Containers. Dieses Verhalten sorgt für eine sehr hohe Skalierbarkeit, da bei Bedarf einfach neue Instanzen der Anwendung gestartet werden können.\cite{DevInsider}
+Durch diese dynamische Skalierung haben Container eine kurze durchschnittliche Lebensdauer. Die genaue prozentuale Verteilung der statistischen Ausführungszeiten von Containern (Dauer zwischen Containerstart und Containerende) kann der Grafik \ref{fig:HW1} entnommen werden:
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.7\textwidth]{Lebensdauer.png}
+	\end{center}
+	\caption[Lebensdauer eines Containers]{Lebensdauer eines Containers \footnotemark}
+	\label{fig:HW1}
+\end{figure}
+\quellefoot{5}{https://www.dailyhostnews.com/wp-content/uploads/2018/05/d3.png}
 In den letzten 10 Jahren haben Container einen großen Wandel durchlebt, welcher in \Abschnitt{Containertechnologien} näher erläutert wird.
 \newpage
