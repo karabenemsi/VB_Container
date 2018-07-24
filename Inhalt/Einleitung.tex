@@ -2,19 +2,19 @@
 \section{Einleitung}
 \label{sec:Einleitung}
 
-Bis kurz vor der Jahrtausendwende führte die Virtualisierung von Servern ein Schattendasein und jeder Service wurde auf einem dedizierten Server zur Verfügung gestellt. Dabei war es keine Seltenheit, dass Server sehr gering ausgelastet waren und der Ausfall eines nicht redundanten Servers einen Totalausfall bedeutete. Eine Beispielhafte dedizierte Serverkonstellation stellt folgende Grafik dar:
+Bis kurz vor der Jahrtausendwende führte die Virtualisierung von Servern ein Schattendasein und jeder Service wurde auf einem dedizierten Server zur Verfügung gestellt. Dabei war es keine Seltenheit, dass Server sehr gering ausgelastet waren und der Ausfall eines nicht redundanten Servers einen Totalausfall eines Services bedeutete. Zudem benötigen viele Services nicht die volle Leistung des Servers auf welchem sie laufen, wodurch die Ressourcen nicht komplett ausgenutzt werden. Eine Beispielhafte dedizierte Serverkonstellation stellt folgende Grafik dar:
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=1\textwidth]{vm1.png}
+		\includegraphics[width=0.8\textwidth]{vm1.png}
 	\end{center}
 	\caption[Serverauslastung ohne Virtualisierung]{Serverauslastung ohne Virtualisierung \footnotemark}
 	\label{fig:HW1}
 \end{figure}
 \quellefoot{1}{https://www.redhat.com/cms/managed-files/server-usage-500x131.png}
-Um diese und weitere Probleme zu lösen, gewann die Virtualisierung von Servern zum Anfang des neuen Jahrtausends immer mehr an Bedeutung und ist heutzutage ein fester Bestandteil vieler großer Unternehmen. Dienste mit geringen Anforderungen werden hier auf einem System zusammengefasst:
+Um diese und weitere Probleme zu lösen, gewann die Virtualisierung von Servern zum Anfang des neuen Jahrtausends immer mehr an Bedeutung und ist heutzutage ein fester Bestandteil vieler großer Unternehmen. Dabei werden auf einem physikalischen System mehrere Dienste zusammengefasst, die sonst nur einen Bruchteil der Leistung benötigen würden. Dadurch kommen noch andere Vorteile wie z.B. das Erstellen von Snapshots und das dynamische Verschieben der virtuellen Maschinen zum tragen die folgende Grafik zeigt die Auslastung der virtualisieren Server:
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=1\textwidth]{vm2.png}
+		\includegraphics[width=0.8\textwidth]{vm2.png}
 	\end{center}
 	\caption[Serverauslastung mit Virtualisierung]{Serverauslastung mit Virtualisierung \footnotemark}
 	\label{fig:HW1}
@@ -24,7 +24,7 @@ Doch auch die Virtualisierung von Servern birgt noch verbesserbare Nachteile. So
 Container setzen genau an diesen Punkten an, es soll nicht für jeden Service ein zusätzliches Betriebssystem virtualisiert werden sondern der Container soll nur das zusätzlich beinhalten was er benötigt und trotzdem isoliert von den anderen Container auf der Hardware laufen.\cite{12005068320161201}\cite{redhat}
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=1\textwidth]{containerundvm.jpg}
+		\includegraphics[width=0.8\textwidth]{containerundvm.jpg}
 	\end{center}
 	\caption[Vergleich Container und VM]{Vergleich Container und VM \footnotemark}
 	\label{fig:HW1}
