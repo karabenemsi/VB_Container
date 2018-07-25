@@ -15,7 +15,7 @@ Im Folgenden findet sich eine Übersicht über die wichtigsten Technologien der 
 \end{figure}
 
 
-\subsection{chroot}
+\subsection*{chroot}
 \label{sec:chroot}
 
 Chroot ist ein Befehl, der schon früh in Unix-Systemen eingebaut wurde.
@@ -24,7 +24,7 @@ Wird in einem Programm \code{chroot()} aufgerufen, wechselt es das Verzeichnis u
 Diese Abschottung eines Prozess war nie als Sicherheitsfeature vorgesehen und wird hauptsächlich zur Virtualisierung eingesetzt.
 Mit dem Befehl können einzelne Prozesse auf Dateiebene von anderen Anwendungen getrennt werden, weitere Sicherheitsmechanismen oder Isolierungen gibt es nicht.\cite{IEEE7830207,569694, MANPAGE01}
 \newpage
-\subsection{OpenVZ}
+\subsection*{OpenVZ}
 \label{sec:OpenVZ}
 
 \begin{wrapfigure}{l}{0.4\textwidth}
@@ -47,13 +47,13 @@ Da sich die Betriebssysteme einen Kernel teilen, können auch die Gastsysteme nu
 Da viele der Änderungen von OpenVZ den Kernel von Linux betreffen, werden regelmäßig Änderungen von OpenVZ-Patches in den Kernel von Linux übernommen.\cite{OpenVzNews, IEEE4803091,OpenVzHist}
 
 
-\subsection{FreeBSD Jails}
+\subsection*{FreeBSD Jails}
 \label{sec:jails}
 Mit der Veröffentlicheung von FreeBSD 4.0 im Jahr 2000 war FreeBSD Jails das erste richtige System in der Containervirtualisierung.
 Die FreeBSD Jails basieren auf dem Konzept von chroot. Auch hier wird das root-Verzeichnis eines Prozess geändert. Zusätzlich verbessert Jails das Konzept um einige Aspekte, so erhält jede Jail einen eigenen Hostnamen	und eine eigene IP-Adresse. Jede Jail hat auch ihre eigenen Benutzer, inklusive einem root-Benutzer. \cite{FreeBSDHB14} Durch diese Prozessisolation ergibt sich eine Art Containersystem. Da die Jails als eigener Prozess laufen, können sie unabhängig voneinander gestartet und gestoppt werden.  Jails wird gerne für den Einsatz in Netzwerkaufgaben eingesetzt, da die Performance sehr gut ist. Jails besitzt allerdings kein so großes Ökosystem wie Bespielsweise Docker oder OpenVZ. Daher wird es in der Containervirtualisierung von diesen Gegenspielern verdrängt.
 
 
-\subsection{LXC}
+\subsection*{LXC}
 \label{sec:lxc}
 \begin{wrapfigure}{r}{0.4\textwidth}
 	\vspace{-40pt}
@@ -69,15 +69,15 @@ Die FreeBSD Jails basieren auf dem Konzept von chroot. Auch hier wird das root-V
 LXC ist seit der erstmaligen Veröffentlichung 2008 ein offizielles Kernelfeature und in den meisten Distributionen von Linux enthalten. Die Abkürzunhg LXC ist eine User Space-Schnittstelle für die erstellung von isolierten Umgebungen innerhalb eines Systems. Dies geschieht durch die Nutzung von Kernel namespace, Apparmor und SELinux-Profilen sowie chroots und cgroups. Diese Features standen schon vor LXC zur Verfügung, jedoch vereinigte sie LXC zu einer Schnittstelle für die Erzeugung von Containern. Zu Beginn der Entwicklung von LXC war die Isolation der Container nicht so gut, sondern glich eher einer Abwandlung der chroot-Funktion. Mit der Zeit wurde die Abschottung jedoch immer besser und die LXC-Container wurden zu richtigen virtualisierten Umgebungen. Dies geschah unter anderem dadurch, dass ab Version 1.0 die einzelnen Container als unpriviliegierte Benutzter ausgeführt werden können. Zuvor war dies nicht möglich und eine Abgrenzung der Container nur bedingt gegeben. LXC ist eine Technologie, die von vielen weiteren Projekten eingesetzt wird, unter anderen auch Proxmox oder Docker (bis Version 1.1)\cite{LXCHomepage,IEEE7036275, IEEE7185212, IEEE7571957,IEEE7929714}
 
 
-\subsection{LXD}
+\subsection*{LXD}
 \label{sec:lxd}
 
 Um die Verwendung von LXC zu vereinfachen wurde das Tool LXD entwickelt. Es besteht aus drei Elementen: Einem Deamon, der eine REST-API zur Verfügung stellt, einem Befehlszeilenclient sowie einem Open-Stack Nova Plugin. Die vom Deamon bereit gestellte Schnittstelle ermöglicht es, über das Netzwerk auf das Management der Container zuzugreifen. LXD ist somit eine Erweiterung, die eine Schnittstelle zu LXC-Containern schafft. Über das Nova Plugin können die einzelnen LXD-Maschinen als Rechenknoten verwendet werden. \cite{LXDHomepage}
 
-\subsection{Solaris Container}
+\subsection*{Solaris Container}
 \label{sec:solariscontainer}
 
-Im Jahr 2004 veröffentlichte Oracle im Build 51 von Solaris 10 zum ersten Mal ein Feature mit dem Namen Solaris Containers. Solaris Container stellt eine Technologie dar, mit der auf x86 und SPARC-Systemen Betriebssystemlevelvirtualisierung durchgeführt werden kann. Später zusammengelegt zu Solaris Zones bestanden die beiden Technologien Solaris Containers und Solaris Zones parallel zueinander. Dabei war Zones eine klassische Virtualisierungsplatform mit Hypervisor und Containers eine Containertechnologie, die analog zu chroot funktionierte. Mit der Zusammenlegung von Containers und Zones zum neuen Zones wurde daraus eine Containerumgebung, in der die Container sicher voneinander und dem Host getrennt sind und von einem Resourcenmanagement kontrolliert werden.	
+Im Jahr 2004 veröffentlichte Oracle im Build 51 von Solaris 10 zum ersten Mal ein Feature mit dem Namen Solaris Containers. Solaris Container stellt eine Technologie dar, mit der auf x86 und SPARC-Systemen Betriebssystemlevelvirtualisierung durchgeführt werden kann. Später zusammengelegt zu Solaris Zones, bestanden die beiden Technologien Solaris Containers und Solaris Zones parallel zueinander. Dabei war Zones eine klassische Virtualisierungsplatform mit Hypervisor und Containers eine Containertechnologie, die analog zu chroot funktionierte. Mit der Zusammenlegung von Containers und Zones zum neuen Zones wurde daraus eine Containerumgebung, in der die Container sicher voneinander und dem Host getrennt sind und von einem Resourcenmanagement kontrolliert werden.\cite{OracleZonesIntro,OracleZonesOver}
 	
 
 %\subsection{Windows Containers}
@@ -85,11 +85,15 @@ Im Jahr 2004 veröffentlichte Oracle im Build 51 von Solaris 10 zum ersten Mal e
 
 
 
-\subsection{Docker}
+\subsection*{Docker}
 \label{sec:Docker}
 
 
 
 
-\subsection{rkt}
+
+\subsection*{rkt}
 \label{sec:rkt}
+
+
+
