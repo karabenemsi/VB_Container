@@ -2,7 +2,7 @@
 \section{Anhang}
 \label{sec:anhang}
 
-\subsection{Mögliche Einsatzmöglichkeiten von Containern an der Hochschule Albstadt-Sigmaringen}
+\subsection{Mögliche Einsatzszenarien von Containern an der Hochschule Albstadt-Sigmaringen}
 \label{app:EinsatzHSAlbSig}
 
 Im folgenden soll betrachtet werden, welche Einsatzmöglichkeiten sich für Container in der IT-Infrastruktur der Hochschule Albstadt-Sigmaringen anbieten und welche Vorteile dies mit sich bringen würde. 
@@ -13,6 +13,8 @@ Die einzelnen Applikationen wie z.B. das E-Learning System Ilias, die CentOS Ins
 Der Cluster-Manager würde dynamisch die Last auf die verschiedenen Maschinen verteilen und könnte Instanzen mit Programmfehlern erkennen sowie schnell neustarten.
 
 Außerdem wäre es möglich, Lastspitzen abzufangen, indem Serverkapazitäten anderer Bildungseinrichtungen genutzt werden, um dort bei Bedarf Containerinstanzen zu starten.
+
+Ein konkreter Anwendungsfall für die Hochschue Albstadt-Sigmaringen ist die Containerisierung der Oracle Datenbank. Die Datenbank wird im Rahmen mehreren Vorlesungen und Praktikas von Professoren und Studenten genutzt. Dabei ist der Zugriff auf die Datenbank, außerhalb von Vorlesungen oder Praktika, sehr gering. Während Praktika und Vorlesungen wird die Datenbank rege genutzt, wodurch die Performance spürbar leidet. Diesen starken Unterschied der benötigten Leistung könnte perfekt durch Containerisierung der Datenbank ausgeglichen werden, da je nach Nachfrage innerhalb von Sekunden Container hoch- oder runter-gefahren werden können. Diese Vorgehensweise spart nicht nur Strom, sondern garantiert auch Professoren und Studierenden eine gute Performance der Datenbank. Oracle bietet im Docker Store ein vorgefertigtes Docker Image an, was die Nutzung von Oracle auf Docker sehr vereinfacht. Eine detaillierte Anleitung für die Containerisierung von Oracle findet sich im Internet. Um die Container dynamisch an die Last anzupassen, könnte ein in \Abschnitt{Cluster} vorgestelltes Cluster-Manager verwendet werden.
 
 \subsection{Begründung der ausgewählten Literatur}
 \label{app:BegruendungLiteratur}
