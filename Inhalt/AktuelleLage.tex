@@ -1,3 +1,42 @@
 % !TEX root = ../Ausarbeitung.tex
 \section{Aktuelle Lage}
 \label{sec:AktuelleLage}
+Trotz einigen Risiken der Container Technologie investieren Unternehmen weltweit immer mehr Geld in die Containerisierung ihres Unternehmens. Laut einer Umfrage, welche auf der DockerCon durchgeführt wurde, investierten 32\% der Unternehmen mindestens 500.000\$ jährlich, um die Containerisierung innerhalb des Unternehmens voranzutreiben \cite{Investments}:
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.8\textwidth]{ContainerInvest.png}
+	\end{center}
+	\caption[Investitionen in die Containerisierung]{Investitionen in die Containerisierung \footnotemark}
+	\label{fig:HW1}
+\end{figure}
+\quellefoot{https://portworx.com/wp-content/uploads/2017/04/survey-investment-768x471.png}
+\newpage
+83\% der in der Produktion eingesetzten Container stammen von Docker. An zweiter Stelle der meist verwendeten Container findet sich CoreOS, welches von der Firma Red Hat übernommen wurde. Mesos Containerizer und Linux Containers (LXC) machen zusammen nur 5\% aller eingesetzten Container aus:
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.8\textwidth]{DockerProzent.png}
+	\end{center}
+	\caption[Benutzung von Containertechnologien]{Benutzung von Containertechnologien \footnotemark}
+	\label{fig:HW1}
+\end{figure}
+\quellefoot{https://www.dailyhostnews.com/wp-content/uploads/2018/05/d2.png}
+Laut eines Berichts der Container-Monitoring-Firma Sysdig stieg die Anzahl der durchschnittlich verwendeten Container pro Host 2018 um 50\% im Vergleich zum Vorjahr. Das entspricht nun etwa 15 Containern. Laut des Berichts ist 154 die maximale Anzahl von Containern, die bisher gleichzeitig auf einer Maschine laufen:
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.8\textwidth]{ContainerHost.png}
+	\end{center}
+	\caption[Container je Maschine]{Container je Maschiner \footnotemark}
+	\label{fig:HW1}
+\end{figure}
+\quellefoot{https://www.dailyhostnews.com/wp-content/uploads/2018/05/d1.png}
+\newpage
+Kubernetes sei die meist genutzte Plattform, um Container zu orchestrieren, und wird von Software-Unternehmen wie Microsoft und IBM verwendet. Das beliebteste Tool, um Container-Cluster für große Firmen auszurollen, sei jedoch Mesos Containerizer \cite{stats}:
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.8\textwidth]{Manager.png}
+	\end{center}
+	\caption[Cluster-Manager]{Cluster-Manager \footnotemark}
+	\label{fig:HW1}
+\end{figure}
+\quellefoot{https://www.dailyhostnews.com/wp-content/uploads/2018/05/d4.png}
+
