@@ -32,20 +32,24 @@ Dadurch kommen noch andere Vorteile wie z.B. das Erstellen von Snapshots und das
 Doch auch die Virtualisierung von Servern birgt noch Probleme, die einer Lösung bedürfen.
 So entsteht durch das Betriebssystem der virtuellen Maschinen ein deutlicher Overhead, da diese zur Laufzeit etliche Services benötigen.
 Außerdem beanspruchen die virtualisierten Betriebssysteme deutlich mehr Hardwareressourcen und die Startzeit ist relativ lang.
-Somit war die IT-Branche nicht in der Lage, wozu die Transportbranche längst in der Lage war: Güter in Container zu verpacken und diese Container aufgrund des standardisierten Formats auf den verschiedensten Verkehrswegen zu transportieren.
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=1\textwidth]{Schiffscontainer.jpg}
-	\end{center}
-	\caption[Container]{Container \footnotemark}
-	\label{fig:schffscontainer}
-\end{figure}
-\quellefoot{http://tricon-terminal.de/uploads/pics/_MG_8745_06.jpg}
+Somit war die IT-Branche nicht in der Lage, wozu die Transportbranche längst in der Lage war: Güter in Container zu verpacken und diese Container aufgrund des standardisierten Formats auf den verschiedensten Verkehrswegen zu transportieren. Die Technologie- und Methodenplattform für die vernetzte medizinische Forschung e.V. veröffentlichte in einem Bericht (\cite{TUM}) noch weitere Parallelen zwischen Software- und Transportcontainer:
+\begin{table}[h]
+\begin{tabular}{|p{0.47\textwidth}|p{0.47\textwidth}|}\hline
+	\textbf{Transport-Container} & \textbf{Software-Container} \\ \hline
+	„Bessere Raumausnutzung“ & Verzicht auf Betriebssystem im Container, Ressourcenallokation über cgroups, Overlay-FS \\ \hline
+	„Schutz gegen Beschädigungen und Diebstahl“ & Virtuelle Netzwerke, wenige offene Ports, derzeit keine Signierung \\ \hline
+	„Effiziente Beladung, Transport, Entladung“ & Sowohl einfache Shellkommandos wie auch komplexe Deploymenttols, zentrales Verzeichnis \\ \hline
+	„Beschleunigte Abfertigung (Sysadmin)“ & Nachvollziehbarkeit von Änderungen durch Modifikationsskripte (Dockerfiles) \\ \hline
+	„Geschlossene Transportkette“ &Gewisse Betriebssystemunabhängigkeit, Unterstützung durch Cloud-Provider \\ \hline
+	„Höhere Transportsicherheit“ & Isolierung der Prozesse durch Linux Namespaces \\ \hline
+\end{tabular}
+\caption{Transport- und Software-Container}
+\end{table}
+
 Um diese Lösung in die IT zu portieren, wurden auch für diese Problemstellung Container (in dem Fall für Software) entwickelt.
 Software-Container setzen wie die Schiffscontainer an dem Punkt Portabilität an.
 Es soll nicht für jeden Service ein zusätzliches Betriebssystem virtualisiert werden, sondern der Container soll nur das zusätzlich beinhalten, was er für den Service benötigt und trotzdem isoliert von den anderen Container auf der Hardware laufen.
 Außerdem soll es wie bei den virtuellen Maschinen möglich sein, dynamisch Ressourcen zuzuweisen.\cite{12005068320161201, redhat}
-\newpage
 Die \Abbildung{VergleichContainerVM} verdeutlicht nochmals den eingesparten Overhead bei Containern verglichen mit virtuellen Maschinen.
 \begin{figure}[H]
 	\begin{center}
