@@ -18,7 +18,7 @@ Die Kommunikation mit Containern funktioniert mithilfe einer virtuellen Netzwerk
 
 Da Container nur als einzelnes Image abgelegt sind und kein Betriebssystem beinhalten, welches aktualisiert und gewartet werden müsste, beschränken sich die Installation und Deinstallation auf ein einfaches Kopieren oder Löschen des Containers. 
 Aus einem Image können beliebig viele Container-Instanzen aufgerufen werden, da Schreibzugriffe nicht auf das Image zugreifen, sondern auf ein eigenes Dateisystem des Containers. Dieses Verhalten sorgt für eine sehr hohe Skalierbarkeit, da bei Bedarf einfach neue Instanzen der Anwendung gestartet werden können.\cite{12771285120180201}
-Durch diese dynamische Skalierung und da die Container mit einem Bruchteil einer Sekunde im Vergleich zu VM´s oder dedizierten Servern sehr schnell gestartet und beendet werden können, haben sie eine deutlich kürzere durchschnittliche Lebensdauer. Die genaue prozentuale Verteilung der statistischen Ausführungszeiten von Containern (Dauer zwischen Containerstart und Containerende) kann der \Abbildung{Lebensdauer} entnommen werden:
+Durch diese dynamische Skalierung und da die Container mit einem Bruchteil einer Sekunde im Vergleich zu VM´s oder dedizierten Servern sehr schnell gestartet und beendet werden können, haben sie eine deutlich kürzere durchschnittliche Lebensdauer.\newpage Die genaue prozentuale Verteilung der statistischen Ausführungszeiten von Containern (Dauer zwischen Containerstart und Containerende) kann der \Abbildung{Lebensdauer} entnommen werden:
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=0.7\textwidth]{Lebensdauer.png}
