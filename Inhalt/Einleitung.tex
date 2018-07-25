@@ -3,29 +3,32 @@
 \label{sec:Einleitung}
 Bis kurz vor der Jahrtausendwende führte die Virtualisierung von Servern ein Schattendasein und jeder Service wurde auf einem dedizierten Server zur Verfügung gestellt.
 Dabei war es keine Seltenheit, dass Server sehr gering ausgelastet waren, da der laufende Service nicht die gesamte Leistung der Hardware benötigte und der Ausfall eines nicht redundanten Servers einen Totalausfall eines Services bedeutete.
-Eine Beispielhafte dedizierte Serverkonstellation stellt Grafik \ref{fig:HW1} dar.
+Eine Beispielhafte dedizierte Serverkonstellation stellt \Abbildung{HW1} dar.
 \begin{figure}[H]
+	\vspace{-20pt}
 	\begin{center}
-		\includegraphics[width=1\textwidth]{vm1.png}
+		\includegraphics[width=0.5\textwidth]{vm1.png}
 	\end{center}
 	\caption[Serverauslastung ohne Virtualisierung]{Serverauslastung ohne Virtualisierung \footnotemark}
+	\vspace{-20pt}
 	\label{fig:HW1}
 \end{figure}
 \quellefoot{https://www.redhat.com/cms/managed-files/server-usage-500x131.png}
-\newpage
+%\newpage
 Um diese und weitere Probleme zu lösen, gewann die Virtualisierung von Servern zum Anfang des neuen Jahrtausends immer mehr an Bedeutung und ist heutzutage ein fester Bestandteil vieler großer Unternehmen.
 Dabei werden auf einem physikalischen System mehrere Dienste zusammengefasst, die sonst nur einen Bruchteil der Leistung benötigen würden.
 Dadurch kommen noch andere Vorteile wie z.B. das Erstellen von Snapshots und das dynamische Verschieben der virtuellen Maschinen zum Tragen.
-Grafik \ref{fig:HW2} zeigt die Auslastung der virtualisierten Server.
+\Abbildung{HW2} zeigt die Auslastung der virtualisierten Server.
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=1\textwidth]{vm2.png}
+		\includegraphics[width=0.5\textwidth]{vm2.png}
 	\end{center}
 	\caption[Serverauslastung mit Virtualisierung]{Serverauslastung mit Virtualisierung \footnotemark}
 	\label{fig:HW2}
+	\vspace{-20pt}
 \end{figure}
 \quellefoot{https://www.redhat.com/cms/managed-files/server-usage-for-virtualization-500x131.png}
-\newpage
+%\newpage
 Doch auch die Virtualisierung von Servern birgt noch Probleme, die einer Lösung bedürfen.
 So entsteht durch das Betriebssystem der virtuellen Maschinen ein deutlicher Overhead, da diese zur Laufzeit etliche Services benötigen.
 Außerdem beanspruchen die virtualisierten Betriebssysteme deutlich mehr Hardwareressourcen und die Startzeit ist relativ lang.
@@ -43,7 +46,7 @@ Software-Container setzen wie die Schiffscontainer an dem Punkt Portabilität an
 Es soll nicht für jeden Service ein zusätzliches Betriebssystem virtualisiert werden, sondern der Container soll nur das zusätzlich beinhalten, was er für den Service benötigt und trotzdem isoliert von den anderen Container auf der Hardware laufen.
 Außerdem soll es wie bei den virtuellen Maschinen möglich sein, dynamisch Ressourcen zuzuweisen.\cite{12005068320161201, redhat}
 \newpage
-Die Grafik \ref{fig:VergleichContainerVM} verdeutlicht nochmals den eingesparten Overhead bei Containern verglichen mit virtuellen Maschinen.
+Die \Abbildung{VergleichContainerVM} verdeutlicht nochmals den eingesparten Overhead bei Containern verglichen mit virtuellen Maschinen.
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=1\textwidth]{containerundvm.png}
