@@ -1,6 +1,31 @@
 % !TEX root = ../Ausarbeitung.tex
 \section{Risiken der Containertechnologie}
 \label{sec:Risiken der Containertechnologie}
+% Einleitung mit Fragestellung
 Die Containertechnologie erobert in den letzten Jahren mehr und mehr die Rechenzentren. Doch welche Risiken verbergen sich dahinter und wie kann man sich schützen?
 
-Durch die hohe Anzahl an Container pro Server ist das Risiko bei einer Sicherheitslücke deutlich höher, da sich diese dann in beispielsweise 80 Containern, anstatt in vier virtuellen Maschinen oder einem dedizierten Server ausnutzen lässt. Da die grundlegende Konfiguration sehr aufwändig ist, verwenden viele Unternehmen vorgefertigte Container aus einem Respository. Dabei kann man sich dann nicht sicher sein, was der Container genau beinhaltet und ob eine schadhafte Absicht dahinter steckt.\cite{Risiken}  
+% Multiplizierung von Sicherheitslücken
+Durch die hohe Anzahl an Container pro Server ist das Risiko bei einer Sicherheitslücke deutlich höher, da sich diese dann in beispielsweise 80 Containern, anstatt in vier virtuellen Maschinen oder einem dedizierten Server ausnutzen lässt.\cite{Risiken}
+
+% Risiko infizierter Images
+Um sich den Aufwand für die Konfiguration der Images zu sparen (diese kann sehr aufwendig sein), verwenden viele Administratoren vorgefertigte Container aus einem Respository.
+Dabei muss dem Ersteller vertraut werden, dass das Image keinen Schadcode oder Hintertüren enthält, da der Aufwand für eine genaue Prüfung des Container-Inhalts sehr aufwendig wäre.
+Im Juni 2018 hatte die Sicherheitsfirma Kromtech berichtet, dass über das Repository Docker Hub mehrere Images über ein Jahr lang verfügbar waren, die Schadcode zum Minen von Kryptowährungen enthielten.
+Diese wurden insgesamt fünf Millionen mal installiert, bevor die Betreiber von Docker Hub reagierten und diese entfernten.
+\footnote{https://kromtech.com/blog/security-center/cryptojacking-invades-cloud-how-modern-containerization-trend-is-exploited-by-attackers}
+Die betroffenen Administratoren hätten das Risiko minimieren können, indem sie nur über das offizielle Docker Repository die Container bezogen hätten.
+Dort werden Images vor ihrer Veröffentlichung geprüft.
+\footnote{https://docs.docker.com/docker-hub/official\_repos/}
+Ein Angreifer müsste zur Verteilung eines infizierten Images den Schadcode verstecken, sodass er bei der Prüfung nicht sichtbar wird. Dies stellt eine wesentlich höhere Hürde dar.
+
+% Schnittstellen zum Kernel
+Werden Applikationen in Containern richtig verpackt, so sind die einzigen Abhängigkeiten nach außen hin die Systemaufrufe des Betriebssystems.
+Dies verbessert die Portabilität der Anwendungen ungemein, allerdings sind auch Systemaufrufe wie z.B. Socket-Schnittstellen sowie hardwarespezifische Systemaufrufe nicht auf allen Systemen einheitlich, wodurch die Portabilität eingeschränkt wird.
+Die Open Container Initivative der Linux Foundation arbeitet neben einem Standard für Container Formate auch an einem Standard für Container Runtimes.
+Dieser könnte helfen, die Schnittstelle zwischen Container und Betriebssystem besser festzulegen.
+
+% Probleme mit Hardware
+Container können nicht gegen Einflüsse schützen, die nicht vom Betriebssystem verwaltet werden. Hierzu sind virtuelle Maschinen als zusätzliche Sicherheitsschicht notwendig.\cite{11517836120160501}
+
+% Prozessorprobleme
+Nicht zuletzt haben die Sicherheitslücken Meltdown (\cite{DBLP:journals/corr/abs-1801-01207}) und Spectre (\cite{DBLP:journals/corr/abs-1801-01203}) gezeigt, dass über Sicherheitslücken in Prozessoren containerübergreifende Angriffe auf Applikationen möglich sind. Hiergegen schützten virtuelle Maschinen allerdings ebenfalls nicht.  
