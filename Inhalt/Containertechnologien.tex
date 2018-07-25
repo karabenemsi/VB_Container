@@ -95,5 +95,17 @@ Im Jahr 2004 veröffentlichte Oracle im Build 51 von Solaris 10 zum ersten Mal e
 \subsection*{rkt}
 \label{sec:rkt}
 
+\begin{wrapfigure}{l}{0.4\textwidth}
+	\vspace{-40pt}
+	\begin{center}
+		\includegraphics[width=0.3\textwidth]{rkt.png}
+	\end{center}
+	\vspace{-15pt}
+	\caption[Logo LXC]{ \footnotemark}
+	\label{fig:rkt}
+	\vspace{-30pt}
+\end{wrapfigure}
+\quellefoot{https://github.com/rkt/rkt/raw/master/logos/rkt-horizontal-color.png}
 
+rkt (Ausprache wie "rocket") ist eine Containerengine, die sich als Alternative zu Docker etabliert und von CoreOS veröffentlicht wurde und weiterentwickelt wird. Das Projekt ist ein Open-Source-Projekt und unter der Apache License 2.0 veröffentlicht.\cite{RepoRkt} Unter rkt werden viele Grundgedanken von UNIX umgesetzt, so liegen alle Container als Dateien vor, die einfach verwaltet werden können. Auch legt rkt einen großen Wert auf Sicherheit und setzt dazu verschiedene Techniken ein, die inzwischen von den meisten Konkurennten übernommen wurden. So kann rkt für jeden Container entscheiden, ob dieser auf Basis von KVM oder einer Virtual Machine isoliert wird und führt alle Prozesse, auch den Download von Images, als nicht priviligierter Benutzer aus. In rkt wird die kleinste Einheit ein "pod" genannt. Sie kann aus einem oder mehrerm Containeren bestehen, die sich Ressourcen teilen. So passt das Konzept von  rkt direkt zu den Konzepten von  Cluster-Managern. Auch besitzt rkt keinen zentralen Service, der alle Container überwacht, sondern arbeitet direkt mit dem Systemeigenen systemd zusammen, um die Container zu verwalten. Somit lässt sich rkt auch direkt mit Kubernetes verknüpfen, für das der Herausgeber von rkt, CoreOS, die kommerzielle Implementierung Tectonic entwickelt. rkt unterstützt auch die Konvertierung von Docker-Containern zu rkt-Pods.\cite{HomepageRkt,ixrkt}
 
