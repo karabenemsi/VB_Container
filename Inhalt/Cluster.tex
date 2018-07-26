@@ -2,7 +2,7 @@
 \section{Cluster}
 \label{sec:Cluster}
 Wie in \Abschnitt{Einleitung} genannt, wurden in der Vergangenheit dedizierte Server für jeweils einen Service genutzt.
-Dies hatte den Nachteil einer geringen Serverauslastung sowie bei nicht reundanten Servern die Gefahr eines Totalausfalls eines Services.
+Dies hatte den Nachteil einer geringen Serverauslastung sowie bei nicht redundanten Servern die Gefahr eines Totalausfalls eines Services.
 Applikationen ließen sich nicht ohne weiteres von einem Server auf einen anderen umziehen, da sie tief in das Hostsystem integriert waren.
 
 Cluster Manager verbinden mehrere Maschinen zu einer Einheit. Während Lösungen wie Apache Mesos eine Abstraktion der Hardware vornehmen, basieren Kubernetes und Docker Swarm auf der Container-Architektur.
@@ -11,5 +11,5 @@ Diese Cluster Manager übernehmen die Verwaltung der Container sowie ihre Zuordn
 Clustering sorgt für eine verbesserte Redundanz und erhöht somit die Ausfallsicherheit.
 Außerdem lässt sich so eine bessere Ressourcen-Allokation vornehmen.
 
-Thema aktueller Forschungsarbeiten ist die Verbesserung des Sheduling, um die Ressourcennutzung zu optimieren.\cite{Liu2018}
+Thema aktueller Forschungsarbeiten ist die Verbesserung des Schedulings, um die Ressourcennutzung zu optimieren.\cite{Liu2018}
 
