@@ -95,13 +95,13 @@ Zu Beginn war Docker lediglich eine Werkzeugsammlung um \ac{LXC}-Container zu ve
 
 Zum heutigen Zeitpunkt ist Docker die führende Containerumgebung (\Vgl \Abbildung{Stats2}), daher wird die Funktion derselben im Folgenden anhand eines Beispielcontainers aufgezeigt:
 
-In diesem Beispiel soll innerhalb eines Docker-Containers ein Python-Skript ausgeführt werden. Als Basis für eine Container-Instanz dient ein schreibgeschütztes Image. Dieses enthält alle benötigten Teile des OS abgesehen vom Kernel, denn dieser wird bereits durch den Host zur Verfügung gestellt. Zusätzlich gehören auch benötigte Abhängigkeiten zu einem Image. Auf diesem schreibgeschützten Teil wird dann ein schreibbarer Layer aufgebaut, wenn von dem Image eine Container-Instanz abgeleitet wird. Wird die Container-Instanz beendet, sind alle Änderung innerhalb des schreibbaren Layer verloren. Um die Änderungen zu sichern, kann ein sogenannter Snapshot angelegt werden, der dem Image einen weiteren read-only-Layer hinzufügt. Die Anzahl der Layer ist, je nach Docker-Version, auf 127 beschränkt. \citep{Buch, dockermanual} \newpage Der Aufbau des Images unseres Beispielcontainers sieht aus wie in \Abbildung{docker1} dargestellt:
+In diesem Beispiel soll innerhalb eines Docker-Containers ein Python-Skript ausgeführt werden. Als Basis für eine Container-Instanz dient ein schreibgeschütztes Image. Dieses enthält alle benötigten Teile des OS abgesehen vom Kernel, denn dieser wird bereits durch den Host zur Verfügung gestellt. Zusätzlich gehören auch benötigte Abhängigkeiten zu einem Image. Auf diesem schreibgeschützten Teil wird dann ein schreibbarer Layer aufgebaut, wenn von dem Image eine Container-Instanz abgeleitet wird. Wird die Container-Instanz beendet, sind alle Änderung innerhalb des schreibbaren Layer verloren. Um die Änderungen zu sichern, kann ein sogenannter Snapshot angelegt werden, der dem Image einen weiteren read-only-Layer hinzufügt. Die Anzahl der Layer ist, je nach Docker-Version, auf 127 beschränkt. \citep{Buch, dockermanual} Der Aufbau des Images unseres Beispielcontainers sieht aus wie in \Abbildung{docker1} dargestellt:
 
 \begin{figure}[h]
     \begin{center}
         \includegraphics[width=0.6\textwidth]{DockerImage.png}
     \end{center}
-    \caption[Image des Beispielcontainer ]{Image des Beispielcontainer}
+    \caption[Image des Beispielcontainers]{Image des Beispielcontainers}
     \label{fig:docker1}
     \end{figure}
 
@@ -125,7 +125,7 @@ In dem Dockerfile wird zuerst definiert, dass das Image auf dem vorhanden Python
 print("Ausgabe zur Kommandozeile")
 file=open("datei.txt", "a+")
 print("Dateiname: ", file.name)
-file.write("Eine neue Zeile")
+file.write("Eine neue Zeile\n")
 file.close()
 print(open("datei.txt","r").read())
 \end{lstlisting}
