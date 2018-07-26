@@ -3,7 +3,7 @@
 \label{sec:Einleitung}
 Bis kurz vor der Jahrtausendwende führte die Virtualisierung von Servern ein Schattendasein und jeder Service wurde auf einem dedizierten Server zur Verfügung gestellt.
 Dabei war es keine Seltenheit, dass Server sehr gering ausgelastet waren, da der laufende Service nicht die gesamte Leistung der Hardware benötigte und der Ausfall eines nicht redundanten Servers einen Totalausfall eines Services bedeutete.
-Eine Beispielhafte dedizierte Serverkonstellation stellt \Abbildung{HW1} dar.
+Eine beispielhafte dedizierte Serverkonstellation stellt \Abbildung{HW1} dar.
 \begin{figure}[H]
 	\vspace{-20pt}
 	\begin{center}
@@ -15,7 +15,7 @@ Eine Beispielhafte dedizierte Serverkonstellation stellt \Abbildung{HW1} dar.
 \end{figure}
 \quellefoot{https://www.redhat.com/cms/managed-files/server-usage-500x131.png}
 %\newpage
-Um diese und weitere Probleme zu lösen, gewann die Virtualisierung von Servern zum Anfang des neuen Jahrtausends immer mehr an Bedeutung und ist heutzutage ein fester Bestandteil vieler großer Unternehmen.
+Um diese und weitere Probleme zu lösen, gewann die Virtualisierung von Servern zum Anfang des neuen Jahrtausends immer mehr an Bedeutung und ist heutzutage ein fester Bestandteil der IT-Infrastruktur vieler Unternehmen.
 Dabei werden auf einem physikalischen System mehrere Dienste zusammengefasst, die sonst nur einen Bruchteil der Leistung benötigen würden.
 Dadurch kommen noch andere Vorteile wie z.B. das Erstellen von Snapshots und das dynamische Verschieben der virtuellen Maschinen zum Tragen.
 \Abbildung{HW2} zeigt die Auslastung der virtualisierten Server.
@@ -32,15 +32,15 @@ Dadurch kommen noch andere Vorteile wie z.B. das Erstellen von Snapshots und das
 Doch auch die Virtualisierung von Servern birgt noch Probleme, die einer Lösung bedürfen.
 So entsteht durch das Betriebssystem der virtuellen Maschinen ein deutlicher Overhead, da diese zur Laufzeit etliche Services benötigen.
 Außerdem beanspruchen die virtualisierten Betriebssysteme deutlich mehr Hardwareressourcen und die Startzeit ist relativ lang.
-Somit war die IT-Branche nicht in der Lage, wozu die Transportbranche längst in der Lage war: Güter in Container zu verpacken und diese Container aufgrund des standardisierten Formats auf den verschiedensten Verkehrswegen zu transportieren. Die Technologie- und Methodenplattform für die vernetzte medizinische Forschung e.V. veröffentlichte in einem Bericht (\cite{TUM}) noch weitere Parallelen zwischen Software- und Transportcontainer:
+Somit war die IT-Branche nicht in der Lage, wozu die Transportbranche längst in der Lage war -- Güter in Container zu verpacken und diese Container aufgrund des standardisierten Formats auf den verschiedensten Verkehrswegen zu transportieren. Die Technologie- und Methodenplattform für die vernetzte medizinische Forschung e.V. veröffentlichte in einem Bericht (\citep{TUM}) noch weitere Parallelen zwischen Software- und Transportcontainer:
 \begin{table}[h]
 \def\arraystretch{1.5}%  1 is the default, change whatever you need
 \begin{tabular}{|p{0.47\textwidth}|p{0.47\textwidth}|}\hline
 	\textbf{Transport-Container} & \textbf{Software-Container} \\ \hline
-	„Bessere Raumausnutzung“ & Verzicht auf Betriebssystem im Container, Ressourcenallokation über cgroups, Overlay-FS \\ \hline
+	„Bessere Raumausnutzung“ & Verzicht auf ein Betriebssystem im Container, Ressourcenallokation über cgroups, Overlay-FS \\ \hline
 	„Schutz gegen Beschädigungen und Diebstahl“ & Virtuelle Netzwerke, wenige offene Ports, derzeit keine Signierung \\ \hline
-	„Effiziente Beladung, Transport, Entladung“ & Sowohl einfache Shellkommandos wie auch komplexe Deploymenttols, zentrales Verzeichnis \\ \hline
-	„Beschleunigte Abfertigung (Sysadmin)“ & Nachvollziehbarkeit von Änderungen durch Modifikationsskripte (Dockerfiles) \\ \hline
+	„Effiziente Beladung, Transport, Entladung“ & Sowohl einfache Shellkommandos wie auch komplexe Deploymenttools, zentrales Verzeichnis \\ \hline
+	„Beschleunigte Abfertigung“ & Nachvollziehbarkeit von Änderungen durch Modifikationsskripte (Dockerfiles) \\ \hline
 	„Geschlossene Transportkette“ &Gewisse Betriebssystemunabhängigkeit, Unterstützung durch Cloud-Provider \\ \hline
 	„Höhere Transportsicherheit“ & Isolierung der Prozesse durch Linux Namespaces \\ \hline
 \end{tabular}
@@ -48,9 +48,9 @@ Somit war die IT-Branche nicht in der Lage, wozu die Transportbranche längst in
 \end{table}
 
 Um diese Lösung in die IT zu portieren, wurden auch für diese Problemstellung Container (in dem Fall für Software) entwickelt.
-Software-Container setzen wie die Schiffscontainer an dem Punkt Portabilität an.
-Es soll nicht für jeden Service ein zusätzliches Betriebssystem virtualisiert werden, sondern der Container soll nur das zusätzlich beinhalten, was er für den Service benötigt und trotzdem isoliert von den anderen Container auf der Hardware laufen.
-Außerdem soll es wie bei den virtuellen Maschinen möglich sein, dynamisch Ressourcen zuzuweisen.\cite{12005068320161201, redhat}
+Software-Container setzen wie die Schiffscontainer an den Punkten Kapselung und Portabilität an.
+Es soll nicht für jeden Service ein zusätzliches Betriebssystem virtualisiert werden, sondern ein Container soll nur das beinhalten, was er für die Bereitstellung des Services benötigt und trotzdem isoliert von den anderen Containern auf der Hardware laufen.
+Außerdem soll es wie bei den virtuellen Maschinen möglich sein, dynamisch Ressourcen zuzuweisen. \citep{12005068320161201, redhat}
 Die \Abbildung{VergleichContainerVM} verdeutlicht nochmals den eingesparten Overhead bei Containern verglichen mit virtuellen Maschinen.
 \begin{figure}[H]
 	\begin{center}

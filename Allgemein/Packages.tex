@@ -31,6 +31,8 @@
 \graphicspath{{Bilder/}} % hier liegen die Bilder des Dokuments
 
 
+
+
 % Sonstiges --------------------------------------------------------------------
 \usepackage[titles]{tocloft} % Inhaltsverzeichnis DIN 5008 gerecht einrücken
 \usepackage{amsmath,amsfonts} % Befehle aus AMSTeX für mathematische Symbole
@@ -41,6 +43,9 @@
 \usepackage[printonlyused]{acronym} % es werden nur benutzte Definitionen aufgelistet
 
 \usepackage{datetime} % Angabe des Build-Datums auf dem Deckblatt
+
+\usepackage{url}  %url im Literaturverteichnis brechen
+\def\UrlBreaks{\do\/\do-}
 
 % Einfache Definition der Zeilenabstände und Seitenränder etc.
 \usepackage{setspace}
@@ -127,16 +132,16 @@
     backgroundcolor=\color{lstbg},
     columns=flexible,
     tabsize=2,
-    frame=none,
+    frame=single,
     extendedchars=true,
     showspaces=false,
     showstringspaces=false,
     numbers=left,
-    numberstyle=\color{lstwhite}\footnotesize,
+    numberstyle=\footnotesize,
     breaklines=true,
     breakautoindent=true,
 	captionpos=b,
-    framesep=10pt,
+    framesep=5pt,
     xleftmargin=0pt,
     xrightmargin=0pt,
 }
