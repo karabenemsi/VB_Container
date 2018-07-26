@@ -2,7 +2,7 @@
 \section{Funktionalität von Containern}
 \label{sec:Funktionalität von Container}
 
-Container setzen meist direkt auf dem Kernel eines Linux-Betriebssystems auf. Um auf den Kernel durchgreifen zu können, verwenden Container native Kernelfuktionen wie Cgroups und Namespaces oder selbst entwickelte Schnittstellen. Dadurch wird das Betriebssystem innerhalb des Containers, ohne einen Hypervisor und eine Kopie des Betriebssystems, zwischen der Anwendung und der Hardware abstrahiert. Alles was die Anwendung zusätzlich benötigt wird mit in den Container gepackt. \cite{10228802020150501} \Abbildung{linuxkernelcontainer} verdeutlicht den Kernelzugriff.
+Container setzen meist direkt auf dem Kernel eines Linux-Betriebssystems auf. Um auf den Kernel durchgreifen zu können, verwenden Container native Kernelfuktionen wie Cgroups und Namespaces oder selbst entwickelte Schnittstellen. Dadurch wird das Betriebssystem innerhalb des Containers, ohne einen Hypervisor und eine Kopie des Betriebssystems, zwischen der Anwendung und der Hardware abstrahiert. Alles was die Anwendung zusätzlich benötigt wird mit in den Container gepackt. \citep{10228802020150501} \Abbildung{linuxkernelcontainer} verdeutlicht den Kernelzugriff.
 
 \begin{figure}[H]
 	\begin{center}
@@ -12,12 +12,12 @@ Container setzen meist direkt auf dem Kernel eines Linux-Betriebssystems auf. Um
 	\label{fig:linuxkernelcontainer}
 \end{figure}
 \quellefoot{https://www.datacenter-insider.de/container-technik-docker-co-a-480855/index2.html}
-Somit können CPU-Zyklen, Arbeitsspeicher, Blockspeicher und sonstige Schnittstellen über den Kernel angefordert und isoliert in dem jeweiligen Container zur Verfügung gestellt werden. \cite{12059254020170101}
+Somit können CPU-Zyklen, Arbeitsspeicher, Blockspeicher und sonstige Schnittstellen über den Kernel angefordert und isoliert in dem jeweiligen Container zur Verfügung gestellt werden. \citep{12059254020170101}
 
-Die Kommunikation mit Containern funktioniert mithilfe einer virtuellen Netzwerkschnittstelle für jeden Container. Außerhalb der Container können die Ports dann auf die Netzwerkkarte gemappt werden, wobei auf dem Host dann natürlich jeder Port pro Netzwerkkarte nur einmal genutzt werden kann. \cite{10228802020150501}
+Die Kommunikation mit Containern funktioniert mithilfe einer virtuellen Netzwerkschnittstelle für jeden Container. Außerhalb der Container können die Ports dann auf die Netzwerkkarte gemappt werden, wobei auf dem Host dann natürlich jeder Port pro Netzwerkkarte nur einmal genutzt werden kann. \citep{10228802020150501}
 
 Da Container nur als einzelnes Image abgelegt sind und kein Betriebssystem beinhalten, welches aktualisiert und gewartet werden müsste, beschränken sich die Installation und Deinstallation auf ein einfaches Kopieren oder Löschen des Containers. 
-Aus einem Image können beliebig viele Container-Instanzen aufgerufen werden, da Schreibzugriffe nicht auf das Image zugreifen, sondern auf ein eigenes Dateisystem des Containers. Dieses Verhalten sorgt für eine sehr hohe Skalierbarkeit, da bei Bedarf einfach neue Instanzen der Anwendung gestartet werden können. \cite{12771285120180201}
+Aus einem Image können beliebig viele Container-Instanzen aufgerufen werden, da Schreibzugriffe nicht auf das Image zugreifen, sondern auf ein eigenes Dateisystem des Containers. Dieses Verhalten sorgt für eine sehr hohe Skalierbarkeit, da bei Bedarf einfach neue Instanzen der Anwendung gestartet werden können. \citep{12771285120180201}
 Durch diese dynamische Skalierung und da die Container mit einem Bruchteil einer Sekunde im Vergleich zu virtuellen Maschinen oder dedizierten Servern sehr schnell gestartet und beendet werden können, haben sie eine deutlich kürzere durchschnittliche Lebensdauer.\newpage Die genaue prozentuale Verteilung der Ausführungszeiten von Containern (Dauer zwischen Containerstart und Containerende) kann der \Abbildung{Lebensdauer} entnommen werden.
 \begin{figure}[H]
 	\begin{center}
