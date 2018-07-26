@@ -19,9 +19,9 @@ Im Folgenden findet sich eine Übersicht über die wichtigsten Technologien der 
 \label{sec:chroot}
 
 Chroot ist ein Befehl, der schon früh in Unix-Systemen eingebaut wurde.
-Er ermöglicht es einem Prozess, ein anderes Rootverzeichnis zu geben.
+Er ermöglicht es, einem Prozess ein anderes Rootverzeichnis zu geben.
 Wird in einem Programm \code{chroot()} aufgerufen, wechselt es das Verzeichnis und kann nicht auf Dateien außerhalb der zugewiesenen Struktur zugreifen.
-Diese Abschottung eines Prozess war nie als Sicherheitsfeature vorgesehen und wird hauptsächlich zur Virtualisierung eingesetzt.
+Diese Abschottung eines Prozesses war nie als Sicherheitsfeature vorgesehen und wird hauptsächlich zur Virtualisierung eingesetzt.
 Mit dem Befehl können einzelne Prozesse auf Dateiebene von anderen Anwendungen getrennt werden, weitere Sicherheitsmechanismen oder Isolierungen gibt es nicht.\cite{IEEE7830207,569694, MANPAGE01}
 \newpage
 \subsection*{OpenVZ}
@@ -33,24 +33,24 @@ Mit dem Befehl können einzelne Prozesse auf Dateiebene von anderen Anwendungen 
 		\includegraphics[width=0.3\textwidth]{openvz.png}
 	\end{center}
 	\vspace{-15pt}
-	\caption[Logo OpenVZ]{ \footnotemark}
+	\caption[Logo OpenVZ]{Logo OpenVZ \footnotemark}
 	\label{fig:openvz}
 	\vspace{-30pt}
 \end{wrapfigure}
 \quellefoot{https://upload.wikimedia.org/wikipedia/commons/b/bb/OpenVZ-logo.png?download}
 
 Im Jahr 2005 veröffentlichte die Firma SWsoft (später umbenannt zu Parallels) ihr Projekt OpenVZ unter der GNU GPL Lizenz. OpenVZ basierte auf der Idee der Container, ermöglicht es jedoch in jedem Container eine eigene Linux-Distribution auszuführen.
-Die durch die Containerumgebung abgegrenzten Betriebssysteme, teilen sich dabei einen Kernel. Dadurch ist der Overhead von OpenVZ deutlich geringer als bei der klassischen Vollvirtualisierung eines Betriebssystems.
+Die durch die Containerumgebung abgegrenzten Betriebssysteme teilen sich einen Kernel. Dadurch ist der Overhead von OpenVZ deutlich geringer als bei der klassischen Vollvirtualisierung eines Betriebssystems.
 In den einzelnen Containern gibt es jeweils einen eigenen root-User und eine eigene Dateistruktur.
-Sie können unabhängig voneinander gestarten und gestoppt werden.
-Da sich die Betriebssysteme einen Kernel teilen, können auch die Gastsysteme nur Linux-Systeme sein.
-Da viele der Änderungen von OpenVZ den Kernel von Linux betreffen, werden regelmäßig Änderungen von OpenVZ-Patches in den Kernel von Linux übernommen.\cite{OpenVzNews, IEEE4803091,OpenVzHist}
+Sie können unabhängig voneinander gestartet und gestoppt werden.
+Da sich die Betriebssysteme einen Kernel teilen, müssen die Gastsysteme ebenfalls Linux-Systeme sein.
+Da viele der Änderungen von OpenVZ den Linux Kernel betreffen, werden regelmäßig Änderungen von OpenVZ-Patches in diesen übernommen.\cite{OpenVzNews, IEEE4803091,OpenVzHist}
 
 
 \subsection*{FreeBSD Jails}
 \label{sec:jails}
-Mit der Veröffentlicheung von FreeBSD 4.0 im Jahr 2000 war FreeBSD Jails das erste richtige System in der Containervirtualisierung.
-Die FreeBSD Jails basieren auf dem Konzept von chroot. Auch hier wird das root-Verzeichnis eines Prozess geändert. Zusätzlich verbessert Jails das Konzept um einige Aspekte, so erhält jede Jail einen eigenen Hostnamen	und eine eigene IP-Adresse. Jede Jail hat auch ihre eigenen Benutzer, inklusive einem root-Benutzer. \cite{FreeBSDHB14} Durch diese Prozessisolation ergibt sich eine Art Containersystem. Da die Jails als eigener Prozess laufen, können sie unabhängig voneinander gestartet und gestoppt werden.  Jails wird gerne für den Einsatz in Netzwerkaufgaben eingesetzt, da die Performance sehr gut ist. Jails besitzt allerdings kein so großes Ökosystem wie Bespielsweise Docker oder OpenVZ. Daher wird es in der Containervirtualisierung von diesen Gegenspielern verdrängt.
+Mit der Veröffentlichung von FreeBSD 4.0 im Jahr 2000 war FreeBSD Jails das erste richtige System für Containervirtualisierung.
+Die FreeBSD Jails basieren auf dem Konzept von chroot. Auch hier wird das root-Verzeichnis eines Prozesses geändert. Zusätzlich verbessert Jails das Konzept um einige Aspekte.Jede Jail erhält einen eigenen Hostnamen	und eine eigene IP-Adresse. Sie hat auch ihre eigenen Benutzer, inklusive einem root-Benutzer. \cite{FreeBSDHB14} Durch diese Prozessisolation ergibt sich eine Art Containersystem. Da die Jails als eigener Prozess laufen, können sie unabhängig voneinander gestartet und gestoppt werden.  Jails wird gerne für den Einsatz in Netzwerkaufgaben eingesetzt, da die Performance sehr gut ist. Allerdings besitzt Jails kein so großes Ökosystem wie beispielsweise Docker oder OpenVZ. Daher wird es in der Containervirtualisierung von diesen Gegenspielern verdrängt.
 
 
 \subsection*{\ac{LXC}}
@@ -61,12 +61,12 @@ Die FreeBSD Jails basieren auf dem Konzept von chroot. Auch hier wird das root-V
 		\includegraphics[width=0.3\textwidth]{LXC.png}
 	\end{center}
 	\vspace{-15pt}
-	\caption[Logo \ac{LXC}]{ \footnotemark}
+	\caption[Logo \ac{LXC}]{Logo \ac{LXC} \footnotemark}
 	\label{fig:LXC}
 	\vspace{-30pt}
 \end{wrapfigure}
 \quellefoot{https://upload.wikimedia.org/wikipedia/commons/4/40/Linux_Containers_logo.png?download}
-\ac{LXC} ist seit der erstmaligen Veröffentlichung 2008 ein offizielles Kernelfeature und in den meisten Distributionen von Linux enthalten. \ac{LXC} ist eine User Space-Schnittstelle für die erstellung von isolierten Umgebungen innerhalb eines Systems. Dies geschieht durch die Nutzung von Kernel namespace, Apparmor und SELinux-Profilen sowie chroots und cgroups. Diese Features standen schon vor \ac{LXC} zur Verfügung, jedoch vereinigte sie \ac{LXC} zu einer Schnittstelle für die Erzeugung von Containern. Zu Beginn der Entwicklung von \ac{LXC} war die Isolation der Container nicht so gut, sondern glich eher einer Abwandlung der chroot-Funktion. Mit der Zeit wurde die Abschottung jedoch immer besser und die \ac{LXC}-Container wurden zu richtigen virtualisierten Umgebungen. Dies geschah unter anderem dadurch, dass ab Version 1.0 die einzelnen Container als unpriviliegierte Benutzter ausgeführt werden können. Zuvor war dies nicht möglich und eine Abgrenzung der Container nur bedingt gegeben. \ac{LXC} ist eine Technologie, die von vielen weiteren Projekten eingesetzt wird, unter anderen auch Proxmox oder Docker (bis Version 1.1)\cite{IEEE7036275, IEEE7185212, IEEE7571957,IEEE7929714,LXCHomepage}
+\ac{LXC} ist seit der erstmaligen Veröffentlichung 2008 ein offizielles Kernelfeature und in den meisten Distributionen von Linux enthalten. \ac{LXC} ist eine User Space-Schnittstelle für die Erstellung von isolierten Umgebungen innerhalb eines Systems. Dies geschieht durch die Nutzung von Kernel namespaces, Apparmor und SELinux-Profilen sowie chroots und cgroups. Diese Features standen schon vor \ac{LXC} zur Verfügung, jedoch vereinigte sie \ac{LXC} zu einer Schnittstelle für die Erzeugung von Containern. Zu Beginn der Entwicklung von \ac{LXC} war die Isolation der Container nicht gut, sondern glich eher einer Abwandlung der chroot-Funktion. Mit der Zeit wurde die Abschottung jedoch immer besser und die \ac{LXC}-Container wurden zu richtigen virtualisierten Umgebungen. Dies geschah unter anderem dadurch, dass ab Version 1.0 die einzelnen Container als unpriviliegierte Benutzer ausgeführt werden können. Zuvor war dies nicht möglich und eine Abgrenzung der Container nur bedingt gegeben. \ac{LXC} ist eine Technologie, die von vielen weiteren Projekten eingesetzt wird, unter anderen auch Proxmox oder Docker (bis Version 1.1)\cite{IEEE7036275, IEEE7185212, IEEE7571957,IEEE7929714,LXCHomepage}
 
 
 \subsection*{LXD}
