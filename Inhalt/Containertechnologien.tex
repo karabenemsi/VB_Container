@@ -95,16 +95,14 @@ Zu Beginn war Docker lediglich eine Werkzeugsammlung, um \ac{LXC}-Container zu v
 
 Zum heutigen Zeitpunkt ist Docker die führende Containerumgebung (\Vgl \Abbildung{Stats2}), daher ist die Funktion derselben im Folgenden anhand eines Beispielcontainers aufgezeigt:
 
-In diesem Beispiel soll innerhalb eines Docker-Containers ein python-Skript ausgeführt werden. Zu Beginn eines jeden Containers steht ein Image. Auf diesem schreibgeschützten Image basiert später eine schreibbare Container-Instanz. Ein Image enthält alle benötigten Teile des OS abgesehen vom Kernel, denn dieser wird bereits durch den Host zur Verfügung gestellt. Zusätzlich gehören auch benötigte Anwendungen zu einem Image. Auf diesem schreibgeschützten Teil wird dann ein schreibbarer Layer aufgebaut, wenn von dem Image eine Container-Instanz abgeleitet wird. Wird die Container-Instanz beendet, sind alle Änderung innerhalb des schreibbaren Layer verloren. Um die Änderungen zu sichern kann ein sogenannter Snapshot angelegt werden, der dem Image ein weiteres read-only-Layer hinzufügt. Die Anzahl der Layer ist, je nach Docker-Version auf 127 beschränkt. \cite{Buch, dockermanual} Zum Beispiel könnte ein Image für den Beispielcontainer wie folgt aussehen:
+In diesem Beispiel soll innerhalb eines Docker-Containers ein python-Skript ausgeführt werden. Zu Beginn eines jeden Containers steht ein Image. Auf diesem schreibgeschützten Image basiert später eine schreibbare Container-Instanz. Ein Image enthält alle benötigten Teile des OS abgesehen vom Kernel, denn dieser wird bereits durch den Host zur Verfügung gestellt. Zusätzlich gehören auch benötigte Anwendungen zu einem Image. Auf diesem schreibgeschützten Teil wird dann ein schreibbarer Layer aufgebaut, wenn von dem Image eine Container-Instanz abgeleitet wird. Wird die Container-Instanz beendet, sind alle Änderung innerhalb des schreibbaren Layer verloren. Um die Änderungen zu sichern kann ein sogenannter Snapshot angelegt werden, der dem Image ein weiteres read-only-Layer hinzufügt. Die Anzahl der Layer ist, je nach Docker-Version auf 127 beschränkt. \cite{Buch, dockermanual} \newpage Zum Beispiel könnte ein Image für den Beispielcontainer wie folgt aussehen:
 
 \begin{figure}[h]
-    \vspace{-10pt}
     \begin{center}
         \includegraphics[width=0.6\textwidth]{DockerImage.png}
     \end{center}
     \caption[Image des Beispielcontainer ]{Image des Beispielcontainer}
     \label{fig:docker1}
-    \vspace{-10pt}
     \end{figure}
 
 Als Basis dient ein Image, in dem Alpine Linux installiert ist und darauf python. Zu diesen Layern wollen wir noch das python-Skript hinzufügen. Dies ist dann der schreibgeschützte Teil, von dem der Container abgeleitet wird. In dieser Container-Instanz legt das python-Skript dann Dateien an und schreibt in diese. Wird der Container dann beendet, werden alle angelegten Dateien verworfen.\\
