@@ -1,14 +1,14 @@
 % !TEX root = ../Ausarbeitung.tex
-\section{Mögliche Einsatzszenarien von Containern an der Hochschule Albstadt-Sigmaringen}
+\section{Einsatzszenarien von Containern an der Hochschule}
 \label{sec:HS}
-Im folgenden soll betrachtet werden, welche Einsatzmöglichkeiten sich für Container in der IT-Infrastruktur der Hochschule Albstadt-Sigmaringen anbieten und welche Vorteile dies mit sich bringen würde. 
+Im Folgenden soll betrachtet werden, welche Einsatzmöglichkeiten sich für Container in der IT-Infrastruktur der Hochschule Albstadt-Sigmaringen anbieten und welche Vorteile dies mit sich bringen würde. 
 
-Prädestiniert für den Einsatz sind die Server-Dienste der Hochschule.
+Da Container keine Schnittstelle für grafische Oberflächen bieten, sind die Server-Dienste der Hochschule für den Einsatz prädestiniert.
 Hier wäre denkbar den in \Abschnitt{Cluster} vorgestellten Ansatz eines Serververbunds in Verbindung mit einem Cluster Manager wie Docker Swarm oder Kubernetes zu verwenden.
 Die einzelnen Applikationen wie z.B. das E-Learning System Ilias, die CentOS Instanzen, die Bibliotheksdienste und die Website könnten dann in mehreren Container-Instanzen laufen.
 Der Cluster-Manager würde dynamisch die Last auf die verschiedenen Maschinen verteilen und könnte Instanzen mit Programmfehlern erkennen sowie schnell neustarten.
 
-Außerdem wäre es möglich, Lastspitzen abzufangen, indem Serverkapazitäten anderer Bildungseinrichtungen genutzt werden, um dort bei Bedarf Containerinstanzen zu starten.
+Außerdem wäre es möglich Lastspitzen abzufangen, indem Serverkapazitäten anderer Bildungseinrichtungen genutzt werden, um dort bei Bedarf Containerinstanzen zu starten.
 
 \textbf{Beispiel:}\newline
 Ein konkreter Anwendungsfall für die Hochschue Albstadt-Sigmaringen ist die Containerisierung der Oracle Datenbank. Die Datenbank wird im Rahmen mehreren Vorlesungen und Praktika von Professoren und Studenten genutzt.
