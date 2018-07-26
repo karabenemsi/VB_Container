@@ -109,13 +109,13 @@ Als Basis dient ein Image, in dem Alpine Linux installiert ist. Python wird als 
 Der Aufbau des Images kann in einem Dockerfile beschrieben werden. Für unser Beispiel sieht dieses wie folgt aus:
 
 \begin{lstlisting}[language=docker,caption={Dockerfile},label={code:dockerfile}]
-    FROM python:3 
-    
-    WORKDIR /usr/src/app
-    
-    COPY ./app.py ./app.py
-    
-    CMD ["python", "./app.py"]
+FROM python:3 
+
+WORKDIR /usr/src/app
+
+COPY ./app.py ./app.py
+
+CMD ["python", "./app.py"]
 \end{lstlisting}
 
 In dem Dockerfile wird zuerst definiert, dass das Image auf dem vorhanden Python-Image aufbauen soll. Dieses wiederum baut auf einem Alpine-Linux-Image auf. Daraufhin wird das aktuelle Arbeitsverzeichnis im Container geändert. Anschließend wird die im Arbeitsverzeichnis des Host abgelegte Datei "`app.py"' in das Arbeitsverzeichnis des Container übertragen und schließlich der Befehl definiert, der beim Start des Containers ausgeführt werden soll. Das Python-Skript legt eine Datei an und gibt deren Dateiname und Inhalt in der Konsole aus:
