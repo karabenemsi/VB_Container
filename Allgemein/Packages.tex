@@ -111,25 +111,34 @@
 \definecolor{colIdentifier}{rgb}{0,0,0}
 \definecolor{colComments}{rgb}{0,0.5,0}
 \definecolor{colString}{rgb}{1,0,0}
+
+\definecolor{lstwhite}{HTML}{000000}
+\definecolor{lstblue}{HTML}{0000ff}
+\definecolor{lstgreen}{HTML}{a31515}
+\definecolor{lstbg}{HTML}{ffffff}
+
 \lstset{
     float=hbp,
-	basicstyle=\ttfamily\footnotesize,
-    identifierstyle=\color{colIdentifier},
-    keywordstyle=\color{colKeys},
-    stringstyle=\color{colString},
-    commentstyle=\color{colComments},
-    backgroundcolor=\color{white},
+	basicstyle=\color{lstwhite},%\ttfamily\footnotesize,
+    identifierstyle=\color{lstwhite},
+    keywordstyle=\color{lstblue},
+    stringstyle=\color{lstgreen},
+    commentstyle=\color{lstwhite},
+    backgroundcolor=\color{lstbg},
     columns=flexible,
     tabsize=2,
-    frame=single,
+    frame=none,
     extendedchars=true,
     showspaces=false,
     showstringspaces=false,
     numbers=left,
-    numberstyle=\tiny,
+    numberstyle=\color{lstwhite}\footnotesize,
     breaklines=true,
     breakautoindent=true,
 	captionpos=b,
+    framesep=10pt,
+    xleftmargin=0pt,
+    xrightmargin=0pt,
 }
 \lstdefinelanguage{cs}{
     language=[Sharp]C,
@@ -176,4 +185,50 @@
 		private,protected,public,static,switch,throw,try,use,var,while,xor
 		die,echo,empty,exit,eval,include,include_once,isset,list,require,
 		require_once,return,print,unset},
+}
+
+
+\lstdefinelanguage{docker}{
+    keywords={FROM, RUN, COPY, ADD, ENTRYPOINT, CMD,  ENV, ARG, WORKDIR, EXPOSE, LABEL, USER, VOLUME, STOPSIGNAL, ONBUILD, MAINTAINER},
+    keywordstyle=\color{lstblue}\bfseries,
+    identifierstyle=\color{lstwhite},
+    sensitive=false,
+    comment=[l]{\#},
+    commentstyle=\color{purple}\ttfamily,
+    stringstyle=\color{lstgreen}\ttfamily,
+    morestring=[b]',
+    morestring=[b]"
+}
+
+\lstdefinelanguage{docker-compose}{
+    keywords={image, environment, ports, container_name, ports, volumes, links},
+    keywordstyle=\color{blue}\bfseries,
+    identifierstyle=\color{black},
+    sensitive=false,
+    comment=[l]{\#},
+    commentstyle=\color{purple}\ttfamily,
+    stringstyle=\color{red}\ttfamily,
+    morestring=[b]',
+    morestring=[b]"
+}
+\lstdefinelanguage{docker-compose-2}{
+    keywords={version, volumes, services},
+    keywordstyle=\color{blue}\bfseries,
+    keywords=[2]{image, environment, ports, container_name, ports, links, build},
+    keywordstyle=[2]\color{olive}\bfseries,
+    identifierstyle=\color{black},
+    sensitive=false,
+    comment=[l]{\#},
+    commentstyle=\color{purple}\ttfamily,
+    stringstyle=\color{red}\ttfamily,
+    morestring=[b]',
+    morestring=[b]"
+}
+
+\lstset{basicstyle=\ttfamily,
+    showstringspaces=false,
+    commentstyle=\color{red},
+    keywordstyle=\color{blue},
+    inputencoding=utf8,
+    extendedchars=true
 }
