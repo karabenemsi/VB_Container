@@ -53,26 +53,26 @@ Mit der Veröffentlicheung von FreeBSD 4.0 im Jahr 2000 war FreeBSD Jails das er
 Die FreeBSD Jails basieren auf dem Konzept von chroot. Auch hier wird das root-Verzeichnis eines Prozess geändert. Zusätzlich verbessert Jails das Konzept um einige Aspekte, so erhält jede Jail einen eigenen Hostnamen	und eine eigene IP-Adresse. Jede Jail hat auch ihre eigenen Benutzer, inklusive einem root-Benutzer. \cite{FreeBSDHB14} Durch diese Prozessisolation ergibt sich eine Art Containersystem. Da die Jails als eigener Prozess laufen, können sie unabhängig voneinander gestartet und gestoppt werden.  Jails wird gerne für den Einsatz in Netzwerkaufgaben eingesetzt, da die Performance sehr gut ist. Jails besitzt allerdings kein so großes Ökosystem wie Bespielsweise Docker oder OpenVZ. Daher wird es in der Containervirtualisierung von diesen Gegenspielern verdrängt.
 
 
-\subsection*{LXC}
-\label{sec:lxc}
+\subsection*{\ac{LXC}}
+\label{sec:LXC}
 \begin{wrapfigure}{r}{0.4\textwidth}
 	\vspace{-40pt}
 	\begin{center}
-		\includegraphics[width=0.3\textwidth]{lxc.png}
+		\includegraphics[width=0.3\textwidth]{LXC.png}
 	\end{center}
 	\vspace{-15pt}
-	\caption[Logo LXC]{ \footnotemark}
-	\label{fig:lxc}
+	\caption[Logo \ac{LXC}]{ \footnotemark}
+	\label{fig:LXC}
 	\vspace{-30pt}
 \end{wrapfigure}
-\quellefoot{https://upload.wikimedia.org/wikipedia/commons/b/bb/OpenVZ-logo.png?download}
-LXC ist seit der erstmaligen Veröffentlichung 2008 ein offizielles Kernelfeature und in den meisten Distributionen von Linux enthalten. LXC ist eine User Space-Schnittstelle für die erstellung von isolierten Umgebungen innerhalb eines Systems. Dies geschieht durch die Nutzung von Kernel namespace, Apparmor und SELinux-Profilen sowie chroots und cgroups. Diese Features standen schon vor LXC zur Verfügung, jedoch vereinigte sie LXC zu einer Schnittstelle für die Erzeugung von Containern. Zu Beginn der Entwicklung von LXC war die Isolation der Container nicht so gut, sondern glich eher einer Abwandlung der chroot-Funktion. Mit der Zeit wurde die Abschottung jedoch immer besser und die LXC-Container wurden zu richtigen virtualisierten Umgebungen. Dies geschah unter anderem dadurch, dass ab Version 1.0 die einzelnen Container als unpriviliegierte Benutzter ausgeführt werden können. Zuvor war dies nicht möglich und eine Abgrenzung der Container nur bedingt gegeben. LXC ist eine Technologie, die von vielen weiteren Projekten eingesetzt wird, unter anderen auch Proxmox oder Docker (bis Version 1.1)\cite{LXCHomepage,IEEE7036275, IEEE7185212, IEEE7571957,IEEE7929714}
+\quellefoot{https://upload.wikimedia.org/wikipedia/commons/4/40/Linux_Containers_logo.png?download}
+\ac{LXC} ist seit der erstmaligen Veröffentlichung 2008 ein offizielles Kernelfeature und in den meisten Distributionen von Linux enthalten. \ac{LXC} ist eine User Space-Schnittstelle für die erstellung von isolierten Umgebungen innerhalb eines Systems. Dies geschieht durch die Nutzung von Kernel namespace, Apparmor und SELinux-Profilen sowie chroots und cgroups. Diese Features standen schon vor \ac{LXC} zur Verfügung, jedoch vereinigte sie \ac{LXC} zu einer Schnittstelle für die Erzeugung von Containern. Zu Beginn der Entwicklung von \ac{LXC} war die Isolation der Container nicht so gut, sondern glich eher einer Abwandlung der chroot-Funktion. Mit der Zeit wurde die Abschottung jedoch immer besser und die \ac{LXC}-Container wurden zu richtigen virtualisierten Umgebungen. Dies geschah unter anderem dadurch, dass ab Version 1.0 die einzelnen Container als unpriviliegierte Benutzter ausgeführt werden können. Zuvor war dies nicht möglich und eine Abgrenzung der Container nur bedingt gegeben. \ac{LXC} ist eine Technologie, die von vielen weiteren Projekten eingesetzt wird, unter anderen auch Proxmox oder Docker (bis Version 1.1)\cite{IEEE7036275, IEEE7185212, IEEE7571957,IEEE7929714,LXCHomepage}
 
 
 \subsection*{LXD}
 \label{sec:lxd}
 
-Um die Verwendung von LXC zu vereinfachen wurde das Tool LXD entwickelt. Es besteht aus drei Elementen: Einem Deamon, der eine REST-API zur Verfügung stellt, einem Befehlszeilenclient sowie einem Open-Stack Nova Plugin. Die vom Deamon bereit gestellte Schnittstelle ermöglicht es, über das Netzwerk auf das Management der Container zuzugreifen. LXD ist somit eine Erweiterung, die eine Schnittstelle zu LXC-Containern schafft. Über das Nova Plugin können die einzelnen LXD-Maschinen als Rechenknoten verwendet werden. \cite{LXDHomepage}
+Um die Verwendung von \ac{LXC} zu vereinfachen wurde das Tool LXD entwickelt. Es besteht aus drei Elementen: Einem Deamon, der eine REST-API zur Verfügung stellt, einem Befehlszeilenclient sowie einem Open-Stack Nova Plugin. Die vom Deamon bereit gestellte Schnittstelle ermöglicht es, über das Netzwerk auf das Management der Container zuzugreifen. LXD ist somit eine Erweiterung, die eine Schnittstelle zu \ac{LXC}-Containern schafft. Über das Nova Plugin können die einzelnen LXD-Maschinen als Rechenknoten verwendet werden. \cite{LXDHomepage}
 
 \subsection*{Solaris Container}
 \label{sec:solariscontainer}
@@ -91,7 +91,7 @@ Im Jahr 2004 veröffentlichte Oracle im Build 51 von Solaris 10 zum ersten Mal e
 
 dotCloud veröffentlichte am März 2013 das Projekt mit dem Namen Docker, dieses Projekt stellte Solomon Hykes auf der PyCon 2013 zum ersten Mal der Öffentlichkeit vor. \cite{dockeryout1} Ein paar Monate Später kündigte dotCloud Inc. an, den Firmennamen zu Docker Inc. zu ändern und sich hauptsächlich der Entwicklung des Docker Ökosystems zu widmen.\cite{dockerblog} Die Firma Docker Inc. (im Folgenden "`Docker Inc."' oder "`Hersteller"') hat bis zum heutigen Tag das Projekt Docker (Im Folgenden "`Docker"') weiterentwickelt und das Ökosystem darum ausgebaut. So wurde unter Anderen der DockerHub eingerichtet, eine Plattform um Images zu teilen und auszutauschen.\cite{dockermanual}
 
-Zu Beginn war Docker lediglich eine Werkzeugsammlung, um LXC-Container zu verwalten, jedoch baute Docker Inc. diese Sammlung immer weiter aus und erweiterte das System um Funktionen, die vom unterliegenden Linux-Betriebssystem nicht gegeben waren. Mit der Version 0.9 veröffentlichte Docker Inc. den neuen Treiber libcontainer und nutzte ihn von dort an als native Umgebung für Docker-Container. \cite{dockerblog2} Zu Beginn unterstützte Docker lediglich Linux-Container und nutzte dazu unter Windows eine virtuelle Maschine (Windows 7 \& 8) oder das Linux-Subsystem (Windows 10). Ab der Version 17.11 von Docker für Windows und dem Windows 10 Fall Creators Update konnten erstmals Windows Containers genutzt werden. \cite{dockerblogwin} Auch entwickelte Docker Inc. weitere Zwischebenen, um sich von LXC zu lösen und die Umgebung in Module zu teilen. So entstand containerd, ein Container-Deamon, mit dem die Docker Engine kommuniziert. Dieser Deamon wiederum kann mit einem OCI-konformen Container-Tool umgehen und über dieses Container starten. Ein solches Tool ist das eigene runC. Auf diese Art können Docker-Container auch durch andere Orchestrierungstools wie Kubernetes oder Swarm verwaltet werden (\Vgl \Abschnitt{Cluster}).\cite{Buch}
+Zu Beginn war Docker lediglich eine Werkzeugsammlung, um \ac{LXC}-Container zu verwalten, jedoch baute Docker Inc. diese Sammlung immer weiter aus und erweiterte das System um Funktionen, die vom unterliegenden Linux-Betriebssystem nicht gegeben waren. Mit der Version 0.9 veröffentlichte Docker Inc. den neuen Treiber libcontainer und nutzte ihn von dort an als native Umgebung für Docker-Container. \cite{dockerblog2} Zu Beginn unterstützte Docker lediglich Linux-Container und nutzte dazu unter Windows eine virtuelle Maschine (Windows 7 \& 8) oder das Linux-Subsystem (Windows 10). Ab der Version 17.11 von Docker für Windows und dem Windows 10 Fall Creators Update konnten erstmals Windows Containers genutzt werden. \cite{dockerblogwin} Auch entwickelte Docker Inc. weitere Zwischebenen, um sich von \ac{LXC} zu lösen und die Umgebung in Module zu teilen. So entstand containerd, ein Container-Deamon, mit dem die Docker Engine kommuniziert. Dieser Deamon wiederum kann mit einem OCI-konformen Container-Tool umgehen und über dieses Container starten. Ein solches Tool ist das eigene runC. Auf diese Art können Docker-Container auch durch andere Orchestrierungstools wie Kubernetes oder Swarm verwaltet werden (\Vgl \Abschnitt{Cluster}).\cite{Buch}
 
 Zum heutigen Zeitpunkt ist Docker die führende Containerumgebung (\Vgl \Abbildung{Stats2}), daher ist die Funktion derselben im Folgenden anhand eines Beispielcontainers aufgezeigt:
 
@@ -171,7 +171,7 @@ Dateiname: datei.txt
 Eine neue Zeile
 \end{lstlisting}
 
-Die Layer, aus denen Docker die verschiedenen Images aufbaut wurden von Docker Inc. zu dem ursprünglichen LXC-Container hinzugefügt und später zum hauseigenen libcontainer übernommen. Durch diese Layer ist es einfacher Ressource zu teilen. Wenn mehrere Images auf Pyhton oder Alpine-Linux aufbauen sollen, so müssen diese beiden Ressourcen nicht mehrfach heruntergeladen werden, sondern können jedem Image zur Verfügung gestellt werden. Dies ist einer der Gründe, warum Docker nach der Veröffentlichung eine große Popularität erreichte und heute die führende Containertechnologie ist.\cite{dockermilestones}
+Die Layer, aus denen Docker die verschiedenen Images aufbaut wurden von Docker Inc. zu dem ursprünglichen \ac{LXC}-Container hinzugefügt und später zum hauseigenen libcontainer übernommen. Durch diese Layer ist es einfacher Ressource zu teilen. Wenn mehrere Images auf Pyhton oder Alpine-Linux aufbauen sollen, so müssen diese beiden Ressourcen nicht mehrfach heruntergeladen werden, sondern können jedem Image zur Verfügung gestellt werden. Dies ist einer der Gründe, warum Docker nach der Veröffentlichung eine große Popularität erreichte und heute die führende Containertechnologie ist.\cite{dockermilestones}
 
 
 
