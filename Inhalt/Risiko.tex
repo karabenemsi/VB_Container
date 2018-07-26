@@ -2,13 +2,13 @@
 \section{Risiken der Containertechnologie}
 \label{sec:Risiken der Containertechnologie}
 % Einleitung mit Fragestellung
-Die Containertechnologie erobert in den letzten Jahren mehr und mehr die Rechenzentren. Doch welche Risiken verbergen sich dahinter und wie kann man sich schützen?
+Die Containertechnologie erobert in den letzten Jahren immer mehr die Rechenzentren. Doch welche Risiken verbergen sich dahinter und wie kann man sich schützen?
 
 % Multiplizierung von Sicherheitslücken
 Durch die hohe Anzahl an Container pro Server ist das Risiko bei einer Sicherheitslücke deutlich höher, da sich diese dann in beispielsweise 80 Containern, anstatt in vier virtuellen Maschinen oder einem dedizierten Server ausnutzen lässt.\cite{Risiken}
 
 % Risiko infizierter Images
-Um sich den Aufwand für die Konfiguration der Images zu sparen (diese kann sehr aufwendig sein), verwenden viele Administratoren vorgefertigte Container aus einem Respository.
+Um sich den Aufwand für die Konfiguration der Images zu sparen (diese kann sehr aufwendig sein), verwenden viele Administratoren vorgefertigte Container-Images aus einem Respository.
 Dabei muss dem Ersteller vertraut werden, dass das Image keinen Schadcode oder Hintertüren enthält, da der Aufwand für eine genaue Prüfung des Container-Inhalts sehr aufwendig wäre.
 Im Juni 2018 hatte die Sicherheitsfirma Kromtech berichtet, dass über das Repository Docker Hub mehrere Images über ein Jahr lang verfügbar waren, die Schadcode zum Minen von Kryptowährungen enthielten.
 Diese wurden insgesamt fünf Millionen mal installiert, bevor die Betreiber von Docker Hub reagierten und diese entfernten.
