@@ -108,7 +108,7 @@ In diesem Beispiel soll innerhalb eines Docker-Containers ein python-Skript ausg
 Als Basis dient ein Image, in dem Alpine Linux installiert ist und darauf python. Zu diesen Layern wollen wir noch das python-Skript hinzufügen. Dies ist dann der schreibgeschützte Teil, von dem der Container abgeleitet wird. In dieser Container-Instanz legt das python-Skript dann Dateien an und schreibt in diese. Wird der Container dann beendet, werden alle angelegten Dateien verworfen.\\
 Dieses Image kann in einem Dockerfile beschrieben werden. Dies sieht für diesen Fall wie folgt aus:
 
-\begin{lstlisting}[language=docker,label={code:dockerfile}]
+\begin{lstlisting}[language=docker,caption={Dockerfile},label={code:dockerfile}]
     FROM python:3
     
     WORKDIR /usr/src/app
@@ -119,7 +119,7 @@ Dieses Image kann in einem Dockerfile beschrieben werden. Dies sieht für diesen
 \end{lstlisting}
 
 In dem Dockerfile wird zuerst definiert, dass das Image auf vorhanden dem python-Image aufbauen soll. Dieses wiederum baut auf einem Alpine-Linux-Image auf. Daraufhin wird das aktuelle Arbeitsverzeichnis im Container geändert. Dann wird die im Arbeitsverzeichnis des Host abgelegte Datei "`app.py"' in das Arbeitsverzeichnis des Container übertragen und schließlich der Befehl definiert, der beim Starten des Container ausgeführt werden soll. Das Python-Skript legt ein Datei an und gibt deren Dateiname und Inhalt zur Konsole aus:
-\begin{lstlisting}[language=python,label={code:pythonapp}]
+\begin{lstlisting}[language=python,caption={app.py},label={code:pythonapp}]
 #!/usr/bin/python3
 
 print("Ausgabe zur Kommandozeile")
@@ -131,7 +131,7 @@ print(open("datei.txt","r").read())
 \end{lstlisting}
 Nun kann mit dem Befehl \code{docker build} das Image erstellt werden. Dabei lädt Docker zunächst das Image von python aus dem oben genanten Docker-Hub herunter und legt darauf das Layer mit dem python-Skript:
 
-\begin{lstlisting}[language=bash,label={code:dockerbuild}]
+\begin{lstlisting}[language=bash,caption={Terminalausgabe docker build},label={code:dockerbuild}]
 user@dockerpc:~$ docker build -t pythontest .
 Sending build context to Docker daemon 311.4MB
 Step 1/4 : FROM python:3
@@ -148,7 +148,7 @@ Successfully tagged pythontest:latest
 
 Nun liegt das Image bereit und es kann ein Container davon abgeleitet werden. Dazu reicht nur der einfache Befehl \code{docker run} um den Container zu starten:
 
-\begin{lstlisting}[language=bash,label={code:dockerbuild}]
+\begin{lstlisting}[language=bash,caption={Terminalausgabe docker run},label={code:dockerbuild}]
 user@dockerpc:~$ docker run pythontest
 Ausgabe zur Kommandozeile
 Dateiname: datei.txt
@@ -157,7 +157,7 @@ Eine neue Zeile
 
 Hier wird nun das Python-Skript in dem Container ausgeführt und der Container daraufhin beendet und somit auch die beschriebene Datei gelöscht. Wird der Container erneut ausgeführt, so wird eine neue Datei erstellt:
 
-\begin{lstlisting}[language=bash,label={code:dockerbuild}]
+\begin{lstlisting}[language=bash,caption={Terminalausgabe docker run mehrfach},label={code:dockerbuild}]
 user@dockerpc:~$ docker run pythontest
 Ausgabe zur Kommandozeile
 Dateiname: datei.txt
