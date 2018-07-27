@@ -5,7 +5,7 @@ Im Folgenden soll betrachtet werden, welche Einsatzmöglichkeiten sich für Cont
 
 Da Container keine Schnittstelle für grafische Oberflächen bieten, sind die Server-Dienste der Hochschule für den Einsatz prädestiniert.
 Hier wäre denkbar den in \Abschnitt{Cluster} vorgestellten Ansatz eines Serververbunds in Verbindung mit einem Cluster Manager wie Docker Swarm oder Kubernetes zu verwenden.
-Die einzelnen Applikationen wie z.B. das E-Learning System Ilias, die CentOS Instanzen, die Bibliotheksdienste und die Website könnten dann in mehreren Container-Instanzen laufen.
+Die einzelnen Applikationen wie z.B. das E-Learning System Ilias, die CentOS Instanzen, die Bibliotheksdienste und die Webserver könnten dann in mehreren Container-Instanzen laufen.
 Der Cluster-Manager würde dynamisch die Last auf die verschiedenen Maschinen verteilen und könnte Instanzen mit Programmfehlern erkennen sowie schnell neustarten.
 
 Außerdem wäre es möglich Lastspitzen abzufangen, indem Serverkapazitäten anderer Bildungseinrichtungen genutzt werden, um dort bei Bedarf Containerinstanzen zu starten.

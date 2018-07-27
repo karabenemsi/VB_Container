@@ -13,7 +13,7 @@ Dabei muss dem Ersteller vertraut werden, dass das Image keinen Schadcode oder H
 Im Juni 2018 hatte die Sicherheitsfirma Kromtech berichtet, dass über das Repository Docker Hub mehrere Images über ein Jahr lang verfügbar waren, die Schadcode zum Minen von Kryptowährungen enthielten.
 Diese wurden insgesamt fünf Millionen mal installiert, bevor die Betreiber von Docker Hub reagierten und diese entfernten.
 \citep{kromtech}
-Die betroffenen Administratoren hätten das Risiko minimieren können, indem sie nur über das offizielle Docker Repository die Container bezogen hätten.
+Die betroffenen Administratoren hätten das Risiko minimieren können, indem Sie nur Container von dem offiziellen Docker Repository bezogen hätten.
 Dort werden Images vor ihrer Veröffentlichung geprüft.
 \citep{DockerHubOfficial}
 Ein Angreifer müsste zur Verteilung eines infizierten Images den Schadcode verstecken, sodass er bei der Prüfung nicht sichtbar wird. Dies stellt eine wesentlich höhere Hürde dar.
@@ -25,7 +25,7 @@ Die Open Container Initivative der Linux Foundation arbeitet neben einem Standar
 Dieser könnte helfen, die Schnittstelle zwischen Container und Betriebssystem besser festzulegen.
 
 % Probleme mit Hardware
-Container können nicht gegen Einflüsse schützen, die nicht vom Betriebssystem verwaltet werden. Hierzu sind virtuelle Maschinen als zusätzliche Sicherheitsschicht notwendig. \citep{11517836120160501}
+Container können nicht gegen Einflüsse schützen, die nicht vom Betriebssystem verwaltet werden. Hierzu sind virtuelle Maschinen als zusätzliche Sicherheitsschicht ratsam. \citep{11517836120160501}
 
 % Prozessorprobleme
-Nicht zuletzt haben die Sicherheitslücken Meltdown \citep{DBLP:journals/corr/abs-1801-01207} und Spectre (\citep{DBLP:journals/corr/abs-1801-01203}) gezeigt, dass über Sicherheitslücken in Prozessoren containerübergreifende Angriffe auf Applikationen möglich sind. Hiergegen schützten virtuelle Maschinen allerdings ebenfalls nicht.  
+Nicht zuletzt haben die Sicherheitslücken Meltdown \citep{DBLP:journals/corr/abs-1801-01207} und Spectre (\citep{DBLP:journals/corr/abs-1801-01203}) gezeigt, dass über Sicherheitslücken in Prozessoren containerübergreifende Angriffe auf Applikationen möglich sind. Hiergegen schützten auch virtuelle Maschinen nicht.  

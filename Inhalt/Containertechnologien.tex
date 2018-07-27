@@ -50,7 +50,7 @@ Da viele der Änderungen von OpenVZ den Linux Kernel betreffen, werden regelmä�
 \subsection*{FreeBSD Jails}
 \label{sec:jails}
 Mit der Veröffentlichung von FreeBSD 4.0 im Jahr 2000 war FreeBSD Jails das erste richtige System für Containervirtualisierung.
-Die FreeBSD Jails basieren auf dem Konzept von chroot. Auch hier wird das root-Verzeichnis eines Prozesses geändert. Zusätzlich verbessert Jails das Konzept um einige Aspekte.Jede Jail erhält einen eigenen Hostnamen	und eine eigene IP-Adresse. Sie hat auch ihre eigenen Benutzer, inklusive einem root-Benutzer. \citep{FreeBSDHB14} Durch diese Prozessisolation ergibt sich eine Art Containersystem. Da die Jails als eigener Prozess laufen, können sie unabhängig voneinander gestartet und gestoppt werden.  Jails wird gerne für den Einsatz in Netzwerkaufgaben eingesetzt, da die Performance sehr gut ist. Allerdings besitzt Jails kein so großes Ökosystem wie beispielsweise Docker oder OpenVZ. Daher wird es in der Containervirtualisierung von diesen Gegenspielern verdrängt.
+Die FreeBSD Jails basieren auf dem Konzept von chroot. Auch hier wird das root-Verzeichnis eines Prozesses geändert. Zusätzlich verbessert Jails das Konzept um einige Aspekte. Jede Jail erhält einen eigenen Hostnamen und eine eigene IP-Adresse. Sie hat auch ihre eigenen Benutzer, inklusive einem root-Benutzer. \citep{FreeBSDHB14} Durch diese Prozessisolation ergibt sich eine Art Containersystem. Da die Jails als eigener Prozess laufen, können sie unabhängig voneinander gestartet und gestoppt werden. Jails wird gerne für den Einsatz in Netzwerkaufgaben eingesetzt, da die Performance sehr gut ist. Allerdings besitzt Jails kein so großes Ökosystem wie beispielsweise Docker oder OpenVZ. Daher wird es in der Containervirtualisierung von diesen Gegenspielern verdrängt.
 
 
 \subsection*{\ac{LXC}}
@@ -177,7 +177,7 @@ Dateiname: datei.txt
 Eine neue Zeile
 \end{lstlisting}
 
-Die Layer, aus denen Docker die verschiedenen Images aufbaut wurden von Docker Inc. in den ursprünglichen \ac{LXC}-Container hinzugefügt und später zum hauseigenen libcontainer übernommen. Durch diese Layer ist es einfacher Ressourcen zu teilen. Wenn mehrere Images auf Python oder Alpine-Linux aufbauen sollen, so müssen diese beiden Ressourcen nicht mehrfach heruntergeladen werden, sondern stehen jedem Image zur Verfügung. Dies ist einer der Gründe, warum Docker nach der Veröffentlichung große Popularität erreichte und heute die führende Containertechnologie ist. \citep{dockermilestones}
+Die Layer, aus denen Docker die verschiedenen Images aufbaut wurden von Docker Inc. in den ursprünglichen \ac{LXC}-Container hinzugefügt und später in den libcontainer übernommen. Durch diese Layer ist es einfacher Ressourcen zu teilen. Wenn mehrere Images auf Python oder Alpine-Linux aufbauen sollen, so müssen diese beiden Ressourcen nicht mehrfach heruntergeladen werden, sondern stehen jedem Image zur Verfügung. Dies ist einer der Gründe, warum Docker nach der Veröffentlichung große Popularität erreichte und heute die führende Containertechnologie ist. \citep{dockermilestones}
 
 
 
